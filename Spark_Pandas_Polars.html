@@ -1,0 +1,2025 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Spark vs Pandas vs Polars: time analysis &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Spark_Pandas_Polars';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    A computational time analysis on Spark, Polars and Pandas
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSpark_Pandas_Polars.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Spark_Pandas_Polars.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Spark vs Pandas vs Polars: time analysis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction"><strong>Introduction</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements"><strong>Requirements</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-with-spark-data-frames"><strong>Data cleaning with <code class="docutils literal notranslate"><span class="pre">Spark</span></code> data-frames</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-set-conceptual-description"><strong>Data-set conceptual description</strong> <a class="anchor" id="7"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#study-1-average-speed-of-taxis-in-terms-of-the-hour"><strong>Study 1: Average speed of taxis in terms of the hour</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-spark-data-frames"><strong>With Spark data-frames</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-spark-rdd"><strong>With Spark RDD</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-spark-sql"><strong>With Spark SQL</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-pandas"><strong>With Pandas</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-with-pandas"><strong>Data cleaning with Pandas</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-the-task">Performing the task</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#study-2-most-common-taxi-trips"><strong>Study 2: Most common taxi trips</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#study-3-average-of-tips-per-borough"><strong>Study 3: Average of tips per borough</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-analysis"><strong>Time Analysis</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spark-and-number-of-cores"><strong>Spark and number of cores</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spark-vs-pandas-vs-polars"><strong>Spark vs Pandas vs Polars</strong></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="spark-vs-pandas-vs-polars-time-analysis">
+<h1><em><strong>Spark vs Pandas vs Polars: time analysis</strong></em><a class="headerlink" href="#spark-vs-pandas-vs-polars-time-analysis" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2><strong>Introduction</strong><a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this project we have carried out three studies on the data provided in a CSV file with information about taxi trips in New York. We have had to clean the dataset first to remove the records with wrong data and remove outliers. To carry out the studies, as it was required, we have used the entire Spark’s API, including the manipulation of RDDs, dataframes and direct SQL.
+We have also analyzed both execution time and speedup in each study, for doing this we have measure time of the actions in each process, excluding the previous transformations as they are included in the action.</p>
+<p>The three studies are the following:</p>
+<ol class="arabic simple">
+<li><p><em><strong>Average speed of taxis in terms of the hour:</strong></em> we have done five versions of this study with Spark df,  Spark rdd, Spark SQL, Pandas and Polars.</p></li>
+<li><p><em><strong>Most common taxi trips:</strong></em> Spark df.</p></li>
+<li><p><em><strong>Average of tips for each zone:</strong></em> Spark SQL.</p></li>
+</ol>
+</section>
+<section id="requirements">
+<h2><strong>Requirements</strong><a class="headerlink" href="#requirements" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pip install findspark</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We start the Spark Session with all the cores of our computer and divide the tasks with coalesce(32). However, we have perform different tests on the processes using different number of cores.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">findspark</span>
+<span class="n">findspark</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
+
+<span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s1">&#39;Intro to Spark&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">master</span><span class="p">(</span><span class="s2">&quot;local[*]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+<span class="n">sc</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span>
+
+<span class="c1">#############################################</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="nb">round</span><span class="p">,</span> <span class="n">expr</span><span class="p">,</span> <span class="n">from_unixtime</span><span class="p">,</span> <span class="n">unix_timestamp</span><span class="p">,</span> <span class="n">date_format</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">concat</span><span class="p">,</span> <span class="n">lit</span><span class="p">,</span> <span class="n">col</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql.types</span> <span class="kn">import</span> <span class="n">IntegerType</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we read the dataset provided.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taxis_df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;csv&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;inferSchema&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;timestampFormat&quot;</span><span class="p">,</span><span class="s2">&quot;yyyy-MM-dd HH:mm:ss&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;header&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;mode&quot;</span><span class="p">,</span> <span class="s2">&quot;DROPMALFORMED&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;./Data/taxis.csv&quot;</span><span class="p">)</span>
+<span class="n">taxis_df</span> <span class="o">=</span> <span class="n">taxis_df</span><span class="o">.</span><span class="n">coalesce</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="n">taxis_df</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+--------+--------------------+---------------------+---------------+-------------+----------+------------------+------------+------------+------------+-----------+-----+-------+----------+------------+---------------------+------------+
+|VendorID|tpep_pickup_datetime|tpep_dropoff_datetime|passenger_count|trip_distance|RatecodeID|store_and_fwd_flag|PULocationID|DOLocationID|payment_type|fare_amount|extra|mta_tax|tip_amount|tolls_amount|improvement_surcharge|total_amount|
++--------+--------------------+---------------------+---------------+-------------+----------+------------------+------------+------------+------------+-----------+-----+-------+----------+------------+---------------------+------------+
+|       1| 2017-01-09 11:13:28|  2017-01-09 11:25:45|              1|          3.3|         1|                 N|         263|         161|           1|       12.5|  0.0|    0.5|       2.0|         0.0|                  0.3|        15.3|
+|       1| 2017-01-09 11:32:27|  2017-01-09 11:36:01|              1|          0.9|         1|                 N|         186|         234|           1|        5.0|  0.0|    0.5|      1.45|         0.0|                  0.3|        7.25|
+|       1| 2017-01-09 11:38:20|  2017-01-09 11:42:05|              1|          1.1|         1|                 N|         164|         161|           1|        5.5|  0.0|    0.5|       1.0|         0.0|                  0.3|         7.3|
+|       1| 2017-01-09 11:52:13|  2017-01-09 11:57:36|              1|          1.1|         1|                 N|         236|          75|           1|        6.0|  0.0|    0.5|       1.7|         0.0|                  0.3|         8.5|
+|       2| 2017-01-01 00:00:00|  2017-01-01 00:00:00|              1|         0.02|         2|                 N|         249|         234|           2|       52.0|  0.0|    0.5|       0.0|         0.0|                  0.3|        52.8|
++--------+--------------------+---------------------+---------------+-------------+----------+------------------+------------+------------+------------+-----------+-----+-------+----------+------------+---------------------+------------+
+only showing top 5 rows
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taxis_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+-------+-------------------+------------------+------------------+-------------------+------------------+------------------+-----------------+------------------+-----------------+-------------------+-------------------+------------------+-------------------+---------------------+------------------+
+|summary|           VendorID|   passenger_count|     trip_distance|         RatecodeID|store_and_fwd_flag|      PULocationID|     DOLocationID|      payment_type|      fare_amount|              extra|            mta_tax|        tip_amount|       tolls_amount|improvement_surcharge|      total_amount|
++-------+-------------------+------------------+------------------+-------------------+------------------+------------------+-----------------+------------------+-----------------+-------------------+-------------------+------------------+-------------------+---------------------+------------------+
+|  count|             971010|            971010|            971010|             971010|            971010|            971010|           971010|            971010|           971010|             971010|             971010|            971010|             971010|               971010|            971010|
+|   mean| 1.5569510097733288|1.6859888157691476| 3.031284878631537| 1.0447286845655555|              NULL|160.37803112223355|158.5567120832947|1.3719735121162502|13.10818815460192|0.20999277041431086| 0.4972142408420099|1.6790282695337968|0.28018088382202855|   0.2996286341025702|16.078110822769524|
+| stddev|0.49674624971879267|1.2917046837574016|3.7858472332117143|0.46163126537430665|              NULL| 67.93819834229225|72.27682104933889|0.5033263270235161|546.7369331191042| 0.2616340036820127|0.04058594644609154| 2.571364110419965| 1.7369077136569349| 0.014468410899185406| 546.7901022658472|
+|    min|                  1|                 0|               0.0|                  1|                 N|                 1|                1|                 1|           -120.0|               -1.0|               -0.5|             -6.06|                0.0|                 -0.3|            -120.3|
+|    max|                  2|                 9|             151.7|                 99|                 Y|               265|              265|                 4|         538579.2|              55.54|                0.5|             366.0|             905.54|                  0.3|          538580.0|
++-------+-------------------+------------------+------------------+-------------------+------------------+------------------+-----------------+------------------+-----------------+-------------------+-------------------+------------------+-------------------+---------------------+------------------+
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-cleaning-with-spark-data-frames">
+<h2><strong>Data cleaning with <code class="docutils literal notranslate"><span class="pre">Spark</span></code> data-frames</strong><a class="headerlink" href="#data-cleaning-with-spark-data-frames" title="Link to this heading">#</a></h2>
+<p>Now, we are going to clean the dataset removing the records with wrong data to prevent errors in the calculations and removing outliers to prevent errors in the analysis of the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Removing trips (rows) with zero (0) duration:</p></li>
+</ul>
+<p>We calculate the duration of the trips in order to remove those which duration is 0. To calculate the trip duration we have made the difference between the dropoff datetime and the pickup datetime. As it is given in seconds we have divided by 3600 to obtain the hours.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taxis_df</span> <span class="o">=</span> <span class="n">taxis_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;trip_duration_hours&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">expr</span><span class="p">(</span><span class="s2">&quot;(unix_timestamp(tpep_dropoff_datetime) - unix_timestamp(tpep_pickup_datetime)) / 3600&quot;</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">taxis_df</span> <span class="o">=</span> <span class="n">taxis_df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">taxis_df</span><span class="p">[</span><span class="s1">&#39;trip_duration_hours&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taxis_df</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>970052
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Removing rows with <code class="docutils literal notranslate"><span class="pre">total_amount</span></code>, <code class="docutils literal notranslate"><span class="pre">tip_amount</span></code>, <code class="docutils literal notranslate"><span class="pre">mta_tax</span></code>, <code class="docutils literal notranslate"><span class="pre">fare_amount</span></code> &lt;= 0.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;total_amount&#39;</span><span class="p">,</span> <span class="s1">&#39;fare_amount&#39;</span><span class="p">]</span> <span class="p">:</span>
+
+    <span class="n">taxis_df</span> <span class="o">=</span> <span class="n">taxis_df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">taxis_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;tip_amount&#39;</span><span class="p">,</span> <span class="s1">&#39;mta_tax&#39;</span><span class="p">]</span> <span class="p">:</span>
+
+    <span class="n">taxis_df</span> <span class="o">=</span> <span class="n">taxis_df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">taxis_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taxis_df</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>969319
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Removing upper outliers in <code class="docutils literal notranslate"><span class="pre">total_amount</span></code>, <code class="docutils literal notranslate"><span class="pre">tolls_amount</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;total_amount&#39;</span><span class="p">,</span> <span class="s1">&#39;tolls_amount&#39;</span><span class="p">]</span> <span class="p">:</span>
+
+    <span class="n">quantiles</span> <span class="o">=</span> <span class="n">taxis_df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">col</span><span class="p">)</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="s2">&quot;25%&quot;</span><span class="p">,</span> <span class="s2">&quot;75%&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+    <span class="n">Q25</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">quantiles</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">col</span><span class="p">])</span>
+    <span class="n">Q75</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">quantiles</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">col</span><span class="p">])</span>
+    <span class="n">IQR</span> <span class="o">=</span> <span class="n">Q75</span> <span class="o">-</span> <span class="n">Q25</span>
+    <span class="n">upper_bound</span> <span class="o">=</span> <span class="n">Q75</span> <span class="o">+</span> <span class="mf">2.5</span><span class="o">*</span><span class="n">IQR</span>
+    <span class="n">taxis_df</span> <span class="o">=</span> <span class="n">taxis_df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">taxis_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">upper_bound</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">data_cleaning_spark_df_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time of data cleaning with Spark data-frames: &#39;</span><span class="p">,</span> <span class="n">data_cleaning_spark_df_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time of data cleaning with Spark data-frames:  6.593500852584839
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taxis_df</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>900387
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-set-conceptual-description">
+<h2><strong>Data-set conceptual description</strong> <a class="anchor" id="7"></a><a class="headerlink" href="#data-set-conceptual-description" title="Link to this heading">#</a></h2>
+<p>The following table contain a brief conceptual description about the precious data-set, as well as the variable type.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Variable</p></th>
+<th class="head text-center"><p>Description</p></th>
+<th class="head text-center"><p>Type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>VendorID</p></td>
+<td class="text-center"><p>A code indicating the TPEP provider that provided the record. 1= Creative Mobile Technologies, LLC; 2= VeriFone Inc.</p></td>
+<td class="text-center"><p>ID</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>tpep_pickup_datetime</p></td>
+<td class="text-center"><p>The date and time when the meter was engaged.</p></td>
+<td class="text-center"><p>Date</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>tpep_dropoff_datetime</p></td>
+<td class="text-center"><p>The date and time when the meter was disengaged.</p></td>
+<td class="text-center"><p>Date</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Passenger_count</p></td>
+<td class="text-center"><p>The number of passengers in the vehicle.</p></td>
+<td class="text-center"><p>Quantitative</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Trip_distance</p></td>
+<td class="text-center"><p>The elapsed trip distance in miles reported by the taximeter.</p></td>
+<td class="text-center"><p>Quantitative</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>PULocationID</p></td>
+<td class="text-center"><p>TLC Taxi Zone in which the taximeter was engaged</p></td>
+<td class="text-center"><p>ID</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>DOLocationID</p></td>
+<td class="text-center"><p>TLC Taxi Zone in which the taximeter was disengaged</p></td>
+<td class="text-center"><p>ID</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>RateCodeID</p></td>
+<td class="text-center"><p>The final rate code in effect at the end of the trip. 1= Standard rate. 2=JFK, 3=Newark, 4=Nassau or Westchester, 5=Negotiated fare, 6=Group ride</p></td>
+<td class="text-center"><p>Categorical</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Store_and_fwd_flag</p></td>
+<td class="text-center"><p>This flag indicates whether the trip record was held in vehicle memory before sending to the vendor, aka “store and forward,”because the vehicle did not have a connection to the server. Y= store and forward trip, N= not a store and forward trip</p></td>
+<td class="text-center"><p>Categorical</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Payment_type</p></td>
+<td class="text-center"><p>A numeric code signifying how the passenger paid for the trip. 1= Credit card, 2= Cash, 3= No charge, 4= Dispute, 5= Unknown, 6= Voided trip</p></td>
+<td class="text-center"><p>Categorical</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Fare_amount</p></td>
+<td class="text-center"><p>The time-and-distance fare calculated by the meter.</p></td>
+<td class="text-center"><p>Quantitative</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Extra</p></td>
+<td class="text-center"><p>Miscellaneous extras and surcharges.  Currently, this only includes the <span class="math notranslate nohighlight">\(0.50 and \)</span>1 rush hour and overnight charges.</p></td>
+<td class="text-center"><p>Quantitative</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>MTA_tax</p></td>
+<td class="text-center"><p>$0.50 MTA tax that is automatically triggered based on the metered rate in use.</p></td>
+<td class="text-center"><p>Quantitative</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Improvement_surcharge</p></td>
+<td class="text-center"><p>$0.30 improvement surcharge assessed trips at the flag drop. The improvement urcharge began being levied in 2015.</p></td>
+<td class="text-center"><p>Quantitative</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Tip_amount</p></td>
+<td class="text-center"><p>Tip amount – This field is automatically populated for credit card tips. Cash tips are not included.</p></td>
+<td class="text-center"><p>Quantitative</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Tolls_amount</p></td>
+<td class="text-center"><p>Total amount of all tolls paid in trip.</p></td>
+<td class="text-center"><p>Quantitative</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Total_amount</p></td>
+<td class="text-center"><p>The total amount charged to passengers. Does not include cash tips.</p></td>
+<td class="text-center"><p>Quantitative</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Total_amount</p></td>
+<td class="text-center"><p>The total amount charged to passengers. Does not include cash tips.</p></td>
+<td class="text-center"><p>Quantitative</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Congestion_Surcharge</p></td>
+<td class="text-center"><p>Total amount collected in trip for NYS congestion surcharge.</p></td>
+<td class="text-center"><p>Quantitative</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Airport_fee</p></td>
+<td class="text-center"><p>The total amount charged to passengers. Does not include cash tips.</p></td>
+<td class="text-center"><p>Quantitative</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="study-1-average-speed-of-taxis-in-terms-of-the-hour">
+<h2><strong>Study 1: Average speed of taxis in terms of the hour</strong><a class="headerlink" href="#study-1-average-speed-of-taxis-in-terms-of-the-hour" title="Link to this heading">#</a></h2>
+<p>In this study we are going to calculate the average speed of NY taxis each hour of the day to be able to analyze the traffic in the city. We have done this study with data-frames, RDD, SQL and also with Pandas.
+We have carried out the following steps:</p>
+<ol class="arabic simple">
+<li><p>Converte trip distance from miles to kilometers.</p></li>
+<li><p>Calculate speed by dividing trip distance over trip duration calculated before.</p></li>
+<li><p>We group by the hour of the day calculating the mean of the speed.</p></li>
+<li><p>We plot the results.</p></li>
+</ol>
+<section id="with-spark-data-frames">
+<h3><strong>With Spark data-frames</strong><a class="headerlink" href="#with-spark-data-frames" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taxis_df_copy</span> <span class="o">=</span> <span class="n">taxis_df</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;taxis_df_copy&#39;</span><span class="p">)</span>
+<span class="n">taxis_df_copy</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+--------+--------------------+---------------------+---------------+-------------+----------+------------------+------------+------------+------------+-----------+-----+-------+----------+------------+---------------------+------------+-------------------+
+|VendorID|tpep_pickup_datetime|tpep_dropoff_datetime|passenger_count|trip_distance|RatecodeID|store_and_fwd_flag|PULocationID|DOLocationID|payment_type|fare_amount|extra|mta_tax|tip_amount|tolls_amount|improvement_surcharge|total_amount|trip_duration_hours|
++--------+--------------------+---------------------+---------------+-------------+----------+------------------+------------+------------+------------+-----------+-----+-------+----------+------------+---------------------+------------+-------------------+
+|       1| 2017-01-09 11:13:28|  2017-01-09 11:25:45|              1|          3.3|         1|                 N|         263|         161|           1|       12.5|  0.0|    0.5|       2.0|         0.0|                  0.3|        15.3|              0.205|
+|       1| 2017-01-09 11:32:27|  2017-01-09 11:36:01|              1|          0.9|         1|                 N|         186|         234|           1|        5.0|  0.0|    0.5|      1.45|         0.0|                  0.3|        7.25|              0.059|
++--------+--------------------+---------------------+---------------+-------------+----------+------------------+------------+------------+------------+-----------+-----+-------+----------+------------+---------------------+------------+-------------------+
+only showing top 2 rows
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taxis_df_copy</span> <span class="o">=</span> <span class="n">taxis_df_copy</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;trip_distance_km&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">taxis_df_copy</span><span class="p">[</span><span class="s2">&quot;trip_distance&quot;</span><span class="p">]</span><span class="o">*</span><span class="mf">1.609344</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">taxis_df_copy</span> <span class="o">=</span> <span class="n">taxis_df_copy</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;trip_speed_km_h&quot;</span><span class="p">,</span>  <span class="nb">round</span><span class="p">(</span><span class="n">taxis_df_copy</span><span class="p">[</span><span class="s1">&#39;trip_distance_km&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">taxis_df_copy</span><span class="p">[</span><span class="s1">&#39;trip_duration_hours&#39;</span><span class="p">],</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">taxis_df_copy</span> <span class="o">=</span> <span class="n">taxis_df_copy</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;hour_time&quot;</span><span class="p">,</span> <span class="n">date_format</span><span class="p">(</span><span class="n">from_unixtime</span><span class="p">(</span><span class="n">unix_timestamp</span><span class="p">(</span><span class="s2">&quot;tpep_pickup_datetime&quot;</span><span class="p">,</span> <span class="s2">&quot;yyyy-MM-dd HH:mm:ss&quot;</span><span class="p">)),</span> <span class="s2">&quot;HH&quot;</span><span class="p">))</span>
+<span class="n">hours_speed_df</span> <span class="o">=</span> <span class="n">taxis_df_copy</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s2">&quot;hour_time&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;trip_speed_km_h&#39;</span><span class="p">)</span>
+<span class="n">hours_speed_df</span> <span class="o">=</span> <span class="n">hours_speed_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;hour_time&quot;</span><span class="p">,</span> <span class="n">hours_speed_df</span><span class="p">[</span><span class="s2">&quot;hour_time&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">IntegerType</span><span class="p">()))</span> <span class="c1"># Convert the &quot;hour_time&quot; column to integer type</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">hours_speed_df_pd</span> <span class="o">=</span> <span class="n">hours_speed_df</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">task1_spark_df_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time of task 1 with Spark data-frames&#39;</span><span class="p">,</span> <span class="n">task1_spark_df_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time of task 1 with Spark data-frames 2.0894644260406494
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;hour_time&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;avg(trip_speed_km_h)&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">hours_speed_df_pd</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Hour&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Avg speed&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Average speed per hour&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">24</span><span class="p">),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+<span class="nb">min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">hours_speed_df_pd</span><span class="p">[</span><span class="s2">&quot;avg(trip_speed_km_h)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">hours_speed_df_pd</span><span class="p">[</span><span class="s2">&quot;avg(trip_speed_km_h)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">ysticks_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">,</span> <span class="mi">15</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">ysticks_</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7e8151d0b382f5c69ab5e86addc975f267861085587550bea93e15243f9ac0c1.png" src="_images/7e8151d0b382f5c69ab5e86addc975f267861085587550bea93e15243f9ac0c1.png" />
+</div>
+</div>
+</section>
+<section id="with-spark-rdd">
+<h3><strong>With Spark RDD</strong><a class="headerlink" href="#with-spark-rdd" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taxis_df_copy</span> <span class="o">=</span> <span class="n">taxis_df</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;taxis_df_copy&#39;</span><span class="p">)</span>
+<span class="n">taxis_df_copy</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+--------+--------------------+---------------------+---------------+-------------+----------+------------------+------------+------------+------------+-----------+-----+-------+----------+------------+---------------------+------------+-------------------+
+|VendorID|tpep_pickup_datetime|tpep_dropoff_datetime|passenger_count|trip_distance|RatecodeID|store_and_fwd_flag|PULocationID|DOLocationID|payment_type|fare_amount|extra|mta_tax|tip_amount|tolls_amount|improvement_surcharge|total_amount|trip_duration_hours|
++--------+--------------------+---------------------+---------------+-------------+----------+------------------+------------+------------+------------+-----------+-----+-------+----------+------------+---------------------+------------+-------------------+
+|       1| 2017-01-09 11:13:28|  2017-01-09 11:25:45|              1|          3.3|         1|                 N|         263|         161|           1|       12.5|  0.0|    0.5|       2.0|         0.0|                  0.3|        15.3|              0.205|
+|       1| 2017-01-09 11:32:27|  2017-01-09 11:36:01|              1|          0.9|         1|                 N|         186|         234|           1|        5.0|  0.0|    0.5|      1.45|         0.0|                  0.3|        7.25|              0.059|
++--------+--------------------+---------------------+---------------+-------------+----------+------------------+------------+------------+------------+-----------+-----+-------+----------+------------+---------------------+------------+-------------------+
+only showing top 2 rows
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_elapsed_hours</span><span class="p">(</span><span class="n">start_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">):</span>
+    <span class="n">elapsed_time</span> <span class="o">=</span> <span class="p">(</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span> <span class="o">/</span> <span class="mi">3600</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">elapsed_time</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trip_distance_rdd</span> <span class="o">=</span> <span class="n">taxis_df_copy</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;trip_distance&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">trip_distance_km_rdd</span> <span class="o">=</span> <span class="n">trip_distance_rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mf">1.609344</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">tpep_dropoff_datetime_rdd</span> <span class="o">=</span> <span class="n">taxis_df_copy</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;tpep_dropoff_datetime&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">tpep_pickup_datetime_rdd</span> <span class="o">=</span> <span class="n">taxis_df_copy</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;tpep_pickup_datetime&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">datetime_rdd</span> <span class="o">=</span> <span class="n">taxis_df_copy</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;tpep_pickup_datetime&#39;</span><span class="p">,</span> <span class="s1">&#39;tpep_dropoff_datetime&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">trip_duration_rdd</span> <span class="o">=</span> <span class="n">datetime_rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">calculate_elapsed_hours</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">trip_distance_time_rdd</span> <span class="o">=</span> <span class="n">trip_distance_km_rdd</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">trip_duration_rdd</span><span class="p">)</span>
+<span class="n">trip_speed_rdd</span> <span class="o">=</span> <span class="n">trip_distance_time_rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">trip_hour_rdd</span> <span class="o">=</span> <span class="n">tpep_pickup_datetime_rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">hour</span><span class="p">)</span>
+<span class="n">key_hour_rdd</span> <span class="o">=</span> <span class="n">trip_hour_rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">trip_hour_sum_hour_rdd</span> <span class="o">=</span> <span class="n">key_hour_rdd</span><span class="o">.</span><span class="n">reduceByKey</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">trip_hour_speed_rdd</span> <span class="o">=</span> <span class="n">trip_hour_rdd</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">trip_speed_rdd</span><span class="p">)</span>
+<span class="n">trip_hour_sum_speed_rdd</span> <span class="o">=</span> <span class="n">trip_hour_speed_rdd</span><span class="o">.</span><span class="n">reduceByKey</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> 
+<span class="n">avg_speed_hour_rdd</span> <span class="o">=</span> <span class="n">trip_hour_sum_hour_rdd</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">trip_hour_sum_speed_rdd</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">)))</span> 
+<span class="n">hours_new_order_rdd</span> <span class="o">=</span> <span class="n">trip_hour_sum_hour_rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">avg_speed_hour_list</span> <span class="o">=</span> <span class="n">avg_speed_hour_rdd</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+<span class="n">hours_new_order_list</span> <span class="o">=</span> <span class="n">hours_new_order_rdd</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">task1_spark_rdd_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time of task 1 with Spark RDDs&#39;</span><span class="p">,</span> <span class="n">task1_spark_rdd_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time of task 1 with Spark RDDs 15.936208009719849
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">hours_new_order_list</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">avg_speed_hour_list</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Hour&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Avg speed&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Average speed per hour&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">24</span><span class="p">),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+<span class="c1">#min = np.round(hours_speed_df_pd[&quot;avg(trip_speed_km_h)&quot;].min())</span>
+<span class="c1">#max = np.round(hours_speed_df_pd[&quot;avg(trip_speed_km_h)&quot;].max())</span>
+<span class="c1">#ysticks_ = np.unique(np.round(np.linspace(min, max, 15)))</span>
+<span class="c1">#plt.yticks(ysticks_) </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5e173176c34e7d09bd02fe0f0673140fa6830e75ad2b1b089b9c09abf3e4c5a5.png" src="_images/5e173176c34e7d09bd02fe0f0673140fa6830e75ad2b1b089b9c09abf3e4c5a5.png" />
+</div>
+</div>
+</section>
+<section id="with-spark-sql">
+<h3><strong>With Spark SQL</strong><a class="headerlink" href="#with-spark-sql" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taxis_df_copy</span> <span class="o">=</span> <span class="n">taxis_df</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;taxis_df_copy&#39;</span><span class="p">)</span>
+<span class="n">taxis_df_copy</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+--------+--------------------+---------------------+---------------+-------------+----------+------------------+------------+------------+------------+-----------+-----+-------+----------+------------+---------------------+------------+-------------------+
+|VendorID|tpep_pickup_datetime|tpep_dropoff_datetime|passenger_count|trip_distance|RatecodeID|store_and_fwd_flag|PULocationID|DOLocationID|payment_type|fare_amount|extra|mta_tax|tip_amount|tolls_amount|improvement_surcharge|total_amount|trip_duration_hours|
++--------+--------------------+---------------------+---------------+-------------+----------+------------------+------------+------------+------------+-----------+-----+-------+----------+------------+---------------------+------------+-------------------+
+|       1| 2017-01-09 11:13:28|  2017-01-09 11:25:45|              1|          3.3|         1|                 N|         263|         161|           1|       12.5|  0.0|    0.5|       2.0|         0.0|                  0.3|        15.3|              0.205|
+|       1| 2017-01-09 11:32:27|  2017-01-09 11:36:01|              1|          0.9|         1|                 N|         186|         234|           1|        5.0|  0.0|    0.5|      1.45|         0.0|                  0.3|        7.25|              0.059|
++--------+--------------------+---------------------+---------------+-------------+----------+------------------+------------+------------+------------+-----------+-----+-------+----------+------------+---------------------+------------+-------------------+
+only showing top 2 rows
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taxis_df_copy</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="p">(</span><span class="s1">&#39;taxis_df_copy&#39;</span><span class="p">)</span> 
+<span class="n">taxis_df_copy</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;SELECT *, round(trip_distance*1.609344, 3) as trip_distance_km FROM taxis_df_copy&quot;</span><span class="p">)</span>
+<span class="n">taxis_df_copy</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="p">(</span><span class="s1">&#39;taxis_df_copy&#39;</span><span class="p">)</span> 
+<span class="n">taxis_df_copy</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;SELECT *, round(trip_distance_km / trip_duration_hours, 3) as trip_speed_km_h FROM taxis_df_copy&quot;</span><span class="p">)</span> 
+<span class="n">taxis_df_copy</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="p">(</span><span class="s1">&#39;taxis_df_copy&#39;</span><span class="p">)</span> 
+<span class="n">taxis_df_copy</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;SELECT *, hour(tpep_pickup_datetime) as hour_time FROM taxis_df_copy&quot;</span><span class="p">)</span>
+<span class="n">taxis_df_copy</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="p">(</span><span class="s1">&#39;taxis_df_copy&#39;</span><span class="p">)</span> 
+<span class="n">hours_speed_df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;SELECT CAST(hour_time AS INT) AS hour_time, avg(trip_speed_km_h) FROM taxis_df_copy GROUP BY hour_time&quot;</span><span class="p">)</span> 
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">hours_speed_df_pd</span> <span class="o">=</span> <span class="n">hours_speed_df</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">task1_spark_sql_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time of task 1 with Spark SQL&#39;</span><span class="p">,</span> <span class="n">task1_spark_sql_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time of task 1 with Spark SQL 2.2889022827148438
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;hour_time&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;avg(trip_speed_km_h)&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">hours_speed_df_pd</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Hour&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Avg speed&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Average speed per hour&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">24</span><span class="p">),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+<span class="nb">min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">hours_speed_df_pd</span><span class="p">[</span><span class="s2">&quot;avg(trip_speed_km_h)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">hours_speed_df_pd</span><span class="p">[</span><span class="s2">&quot;avg(trip_speed_km_h)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">ysticks_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">,</span> <span class="mi">15</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">ysticks_</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7e8151d0b382f5c69ab5e86addc975f267861085587550bea93e15243f9ac0c1.png" src="_images/7e8151d0b382f5c69ab5e86addc975f267861085587550bea93e15243f9ac0c1.png" />
+</div>
+</div>
+</section>
+<section id="with-pandas">
+<h3><strong>With Pandas</strong><a class="headerlink" href="#with-pandas" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taxis_df_pd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;./Data/taxis.csv&quot;</span><span class="p">)</span>
+<span class="n">taxis_df_pd</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>VendorID</th>
+      <th>tpep_pickup_datetime</th>
+      <th>tpep_dropoff_datetime</th>
+      <th>passenger_count</th>
+      <th>trip_distance</th>
+      <th>RatecodeID</th>
+      <th>store_and_fwd_flag</th>
+      <th>PULocationID</th>
+      <th>DOLocationID</th>
+      <th>payment_type</th>
+      <th>fare_amount</th>
+      <th>extra</th>
+      <th>mta_tax</th>
+      <th>tip_amount</th>
+      <th>tolls_amount</th>
+      <th>improvement_surcharge</th>
+      <th>total_amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2017-01-09 11:13:28</td>
+      <td>2017-01-09 11:25:45</td>
+      <td>1</td>
+      <td>3.30</td>
+      <td>1</td>
+      <td>N</td>
+      <td>263</td>
+      <td>161</td>
+      <td>1</td>
+      <td>12.5</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>2.00</td>
+      <td>0.0</td>
+      <td>0.3</td>
+      <td>15.30</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2017-01-09 11:32:27</td>
+      <td>2017-01-09 11:36:01</td>
+      <td>1</td>
+      <td>0.90</td>
+      <td>1</td>
+      <td>N</td>
+      <td>186</td>
+      <td>234</td>
+      <td>1</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>1.45</td>
+      <td>0.0</td>
+      <td>0.3</td>
+      <td>7.25</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>2017-01-09 11:38:20</td>
+      <td>2017-01-09 11:42:05</td>
+      <td>1</td>
+      <td>1.10</td>
+      <td>1</td>
+      <td>N</td>
+      <td>164</td>
+      <td>161</td>
+      <td>1</td>
+      <td>5.5</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>1.00</td>
+      <td>0.0</td>
+      <td>0.3</td>
+      <td>7.30</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>2017-01-09 11:52:13</td>
+      <td>2017-01-09 11:57:36</td>
+      <td>1</td>
+      <td>1.10</td>
+      <td>1</td>
+      <td>N</td>
+      <td>236</td>
+      <td>75</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>1.70</td>
+      <td>0.0</td>
+      <td>0.3</td>
+      <td>8.50</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>2017-01-01 00:00:00</td>
+      <td>2017-01-01 00:00:00</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>2</td>
+      <td>N</td>
+      <td>249</td>
+      <td>234</td>
+      <td>2</td>
+      <td>52.0</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.3</td>
+      <td>52.80</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taxis_df_pd</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(971010, 17)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="data-cleaning-with-pandas">
+<h4><strong>Data cleaning with Pandas</strong><a class="headerlink" href="#data-cleaning-with-pandas" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Removing trips (rows) with zero (0) duration:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taxis_df_pd</span><span class="p">[</span><span class="s1">&#39;tpep_pickup_datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">taxis_df_pd</span><span class="p">[</span><span class="s1">&#39;tpep_pickup_datetime&#39;</span><span class="p">])</span>
+<span class="n">taxis_df_pd</span><span class="p">[</span><span class="s1">&#39;tpep_dropoff_datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">taxis_df_pd</span><span class="p">[</span><span class="s1">&#39;tpep_dropoff_datetime&#39;</span><span class="p">])</span>
+<span class="n">taxis_df_pd</span><span class="p">[</span><span class="s1">&#39;trip_duration_hours&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">taxis_df_pd</span><span class="p">[</span><span class="s1">&#39;tpep_dropoff_datetime&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">taxis_df_pd</span><span class="p">[</span><span class="s1">&#39;tpep_pickup_datetime&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span> <span class="o">/</span> <span class="mi">3600</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">taxis_df_pd</span> <span class="o">=</span> <span class="n">taxis_df_pd</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">taxis_df_pd</span><span class="p">[</span><span class="s1">&#39;trip_duration_hours&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Removing rows with <code class="docutils literal notranslate"><span class="pre">total_amount</span></code>, <code class="docutils literal notranslate"><span class="pre">tip_amount</span></code>, <code class="docutils literal notranslate"><span class="pre">mta_tax</span></code>, <code class="docutils literal notranslate"><span class="pre">fare_amount</span></code> &lt;= 0.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;total_amount&#39;</span><span class="p">,</span> <span class="s1">&#39;fare_amount&#39;</span><span class="p">]</span> <span class="p">:</span>
+
+    <span class="n">taxis_df_pd</span> <span class="o">=</span> <span class="n">taxis_df_pd</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">taxis_df_pd</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;tip_amount&#39;</span><span class="p">,</span> <span class="s1">&#39;mta_tax&#39;</span><span class="p">]</span> <span class="p">:</span>
+
+    <span class="n">taxis_df_pd</span> <span class="o">=</span> <span class="n">taxis_df_pd</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">taxis_df_pd</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Removing upper outliers in <code class="docutils literal notranslate"><span class="pre">total_amount</span></code>, <code class="docutils literal notranslate"><span class="pre">tolls_amount</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;total_amount&#39;</span><span class="p">,</span> <span class="s1">&#39;tolls_amount&#39;</span><span class="p">]</span> <span class="p">:</span>
+
+    <span class="n">Q75</span> <span class="o">=</span> <span class="n">taxis_df_pd</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span> 
+    <span class="n">Q25</span> <span class="o">=</span> <span class="n">taxis_df_pd</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span> 
+    <span class="n">IQR</span> <span class="o">=</span> <span class="n">Q75</span> <span class="o">-</span> <span class="n">Q25</span>
+    <span class="n">upper_bound</span> <span class="o">=</span> <span class="n">Q75</span> <span class="o">+</span> <span class="mf">2.5</span><span class="o">*</span><span class="n">IQR</span>
+    <span class="n">taxis_df_pd</span> <span class="o">=</span> <span class="n">taxis_df_pd</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">taxis_df_pd</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">upper_bound</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">data_cleaning_pandas_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data cleaning with pandas: &#39;</span><span class="p">,</span> <span class="n">data_cleaning_pandas_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data cleaning with pandas:  0.8886573314666748
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taxis_df_pd</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(900387, 18)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="performing-the-task">
+<h4>Performing the task<a class="headerlink" href="#performing-the-task" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">taxis_df_pd</span><span class="p">[</span><span class="s1">&#39;trip_distance_km&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">taxis_df_pd</span><span class="p">[</span><span class="s2">&quot;trip_distance&quot;</span><span class="p">]</span><span class="o">*</span><span class="mf">1.609344</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">taxis_df_pd</span><span class="p">[</span><span class="s1">&#39;trip_speed_km_h&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">taxis_df_pd</span><span class="p">[</span><span class="s2">&quot;trip_distance_km&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">taxis_df_pd</span><span class="p">[</span><span class="s1">&#39;trip_duration_hours&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">taxis_df_pd</span><span class="p">[</span><span class="s1">&#39;hour_time&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">taxis_df_pd</span><span class="p">[</span><span class="s1">&#39;tpep_pickup_datetime&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span>
+<span class="n">hours_speed_df_pd</span> <span class="o">=</span> <span class="n">taxis_df_pd</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;hour_time&#39;</span><span class="p">)[</span><span class="s1">&#39;trip_speed_km_h&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">task1_pandas_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time of task 1 with pandas: &#39;</span><span class="p">,</span> <span class="n">task1_pandas_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time of task 1 with pandas:  0.0503997802734375
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">hours_speed_df_pd</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">hours_speed_df_pd</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Hour&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Avg speed&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Average speed per hour&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">24</span><span class="p">),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+<span class="nb">min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">hours_speed_df_pd</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">hours_speed_df_pd</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">ysticks_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">,</span> <span class="mi">15</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">ysticks_</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/87503a5fc6448f48db21664c1ef22d71b56165a8ff04768ffeca1f1319bd6ace.png" src="_images/87503a5fc6448f48db21664c1ef22d71b56165a8ff04768ffeca1f1319bd6ace.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="study-2-most-common-taxi-trips">
+<h2><strong>Study 2: Most common taxi trips</strong><a class="headerlink" href="#study-2-most-common-taxi-trips" title="Link to this heading">#</a></h2>
+<p>In this study we have analyzed the most common taxi trips. We have used Spark Data Frame.<br />
+We have followed the nesxt steps:</p>
+<ol class="arabic simple">
+<li><p>Read the file “zones.csv” that provides the borough and zone of the pickup and dropoff codes.</p></li>
+<li><p>Filter the unknown trips in the zones dataset.</p></li>
+<li><p>Group by pickup and dropoff location ids counting the records and ordering by this count.</p></li>
+<li><p>Join both datasets, trips and zones, in order to get the borough and zones of the pickup and dropoff location ids.</p></li>
+<li><p>Order by trip count the final result to get the most common trips.</p></li>
+<li><p>Show the 10 most common trips.</p></li>
+<li><p>Plot the results.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zones_df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;csv&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;inferSchema&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;timestampFormat&quot;</span><span class="p">,</span><span class="s2">&quot;yyyy-MM-dd HH:mm:ss&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;header&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;mode&quot;</span><span class="p">,</span> <span class="s2">&quot;DROPMALFORMED&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;./Data/zones.csv&quot;</span><span class="p">)</span>
+<span class="n">zones_df</span> <span class="o">=</span> <span class="n">zones_df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">zones_df</span><span class="p">[</span><span class="s1">&#39;LocationID&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">264</span><span class="p">)</span>
+<span class="n">group_by_df</span> <span class="o">=</span> <span class="n">taxis_df</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s1">&#39;PULocationID&#39;</span><span class="p">,</span> <span class="s1">&#39;DOLocationID&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;trip_count&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">orderBy</span><span class="p">(</span><span class="s1">&#39;trip_count&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">PU_joined_df</span> <span class="o">=</span> <span class="n">group_by_df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">zones_df</span><span class="p">,</span> <span class="n">group_by_df</span><span class="p">[</span><span class="s1">&#39;PULocationID&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">zones_df</span><span class="p">[</span><span class="s1">&#39;LocationID&#39;</span><span class="p">],</span> <span class="s1">&#39;inner&#39;</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;PULocationID&#39;</span><span class="p">,</span> <span class="s1">&#39;DOLocationID&#39;</span><span class="p">,</span> <span class="s1">&#39;LocationID&#39;</span><span class="p">,</span> <span class="s1">&#39;trip_count&#39;</span><span class="p">,</span> <span class="s1">&#39;Borough&#39;</span><span class="p">,</span> <span class="s1">&#39;Zone&#39;</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">withColumnRenamed</span><span class="p">(</span><span class="s1">&#39;Borough&#39;</span><span class="p">,</span> <span class="s1">&#39;Borough_PU&#39;</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">withColumnRenamed</span><span class="p">(</span><span class="s1">&#39;Zone&#39;</span><span class="p">,</span> <span class="s1">&#39;Zone_PU&#39;</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">withColumnRenamed</span><span class="p">(</span><span class="s1">&#39;trip_count&#39;</span><span class="p">,</span> <span class="s1">&#39;trip_count_PU&#39;</span><span class="p">)</span>
+<span class="n">DO_joined_df</span> <span class="o">=</span> <span class="n">group_by_df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">zones_df</span><span class="p">,</span> <span class="n">group_by_df</span><span class="p">[</span><span class="s1">&#39;DOLocationID&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">zones_df</span><span class="p">[</span><span class="s1">&#39;LocationID&#39;</span><span class="p">],</span> <span class="s1">&#39;inner&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;PULocationID&#39;</span><span class="p">,</span> <span class="s1">&#39;DOLocationID&#39;</span><span class="p">,</span> <span class="s1">&#39;LocationID&#39;</span><span class="p">,</span> <span class="s1">&#39;trip_count&#39;</span><span class="p">,</span> <span class="s1">&#39;Borough&#39;</span><span class="p">,</span> <span class="s1">&#39;Zone&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">withColumnRenamed</span><span class="p">(</span><span class="s1">&#39;Borough&#39;</span><span class="p">,</span> <span class="s1">&#39;Borough_DO&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">withColumnRenamed</span><span class="p">(</span><span class="s1">&#39;Zone&#39;</span><span class="p">,</span> <span class="s1">&#39;Zone_DO&#39;</span><span class="p">)</span>
+<span class="n">zones_trips_df</span> <span class="o">=</span> <span class="n">PU_joined_df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DO_joined_df</span><span class="p">,</span> <span class="p">(</span><span class="n">PU_joined_df</span><span class="p">[</span><span class="s1">&#39;PULocationID&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">DO_joined_df</span><span class="p">[</span><span class="s1">&#39;PULocationID&#39;</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">PU_joined_df</span><span class="p">[</span><span class="s1">&#39;DOLocationID&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">DO_joined_df</span><span class="p">[</span><span class="s1">&#39;DOLocationID&#39;</span><span class="p">]),</span> <span class="s1">&#39;inner&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Borough_PU&#39;</span><span class="p">,</span> <span class="s1">&#39;Zone_PU&#39;</span><span class="p">,</span> <span class="s1">&#39;Borough_DO&#39;</span><span class="p">,</span> <span class="s1">&#39;Zone_DO&#39;</span><span class="p">,</span> <span class="s1">&#39;trip_count&#39;</span><span class="p">)</span>
+<span class="n">zones_trips_sorted_df</span> <span class="o">=</span> <span class="n">zones_trips_df</span><span class="o">.</span><span class="n">orderBy</span><span class="p">(</span><span class="s1">&#39;trip_count&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">zones_trips_sorted_df</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">task2_spark_df_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+----------+--------------------+----------+--------------------+----------+
+|Borough_PU|             Zone_PU|Borough_DO|             Zone_DO|trip_count|
++----------+--------------------+----------+--------------------+----------+
+| Manhattan|Upper East Side S...| Manhattan|Upper East Side N...|      3433|
+| Manhattan|Upper East Side N...| Manhattan|Upper East Side N...|      3149|
+| Manhattan|Upper East Side N...| Manhattan|Upper East Side S...|      3005|
+| Manhattan|Times Sq/Theatre ...| Manhattan|West Chelsea/Huds...|      2940|
+| Manhattan|        East Village| Manhattan|        East Village|      2877|
+| Manhattan|Upper East Side S...| Manhattan|Upper East Side S...|      2719|
+| Manhattan|Upper West Side S...| Manhattan| Lincoln Square East|      2594|
+| Manhattan|Upper West Side S...| Manhattan|Upper West Side N...|      2536|
+| Manhattan| Lincoln Square East| Manhattan|Upper West Side S...|      2470|
+| Manhattan|Times Sq/Theatre ...| Manhattan|Penn Station/Madi...|      2202|
++----------+--------------------+----------+--------------------+----------+
+only showing top 10 rows
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time task 2 with Spark data-frames: &#39;</span><span class="p">,</span> <span class="n">task2_spark_df_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time task 2 with Spark data-frames:  5.124625205993652
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="n">col</span>
+<span class="n">zones_trips_sorted_df</span> <span class="o">=</span> <span class="n">zones_trips_sorted_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s1">&#39;Zone_PU_DO&#39;</span><span class="p">,</span> <span class="n">concat</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;Zone_PU&#39;</span><span class="p">),</span> <span class="n">lit</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">),</span> <span class="n">col</span><span class="p">(</span><span class="s1">&#39;Zone_DO&#39;</span><span class="p">)))</span>
+<span class="n">zones_trips_sorted_df_pd</span> <span class="o">=</span> <span class="n">zones_trips_sorted_df</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;Zone_PU_DO&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;trip_count&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">zones_trips_sorted_df_pd</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;trip_count&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Zone_PU_DO&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Top ten most common trips&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+<span class="c1"># min = np.round(hours_speed_df_pd[&quot;avg(trip_speed_km_h)&quot;].min())</span>
+<span class="c1"># max = np.round(hours_speed_df_pd[&quot;avg(trip_speed_km_h)&quot;].max())</span>
+<span class="c1"># ysticks_ = np.unique(np.round(np.linspace(min, max, 15)))</span>
+<span class="c1"># plt.yticks(ysticks_) </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1b4dddba5cb6736a22daf1b04ae81df2cec6aaa63faca6d16a5f6a2ebf9283d6.png" src="_images/1b4dddba5cb6736a22daf1b04ae81df2cec6aaa63faca6d16a5f6a2ebf9283d6.png" />
+</div>
+</div>
+</section>
+<section id="study-3-average-of-tips-per-borough">
+<h2><strong>Study 3: Average of tips per borough</strong><a class="headerlink" href="#study-3-average-of-tips-per-borough" title="Link to this heading">#</a></h2>
+<p>In this study we have analyzed the average of tips per pickup borough. We have used Spark SQL.<br />
+We have followed the nesxt steps:</p>
+<ol class="arabic simple">
+<li><p>Read the file “zones.csv” that provides the borough and zone of the pickup and dropoff codes.</p></li>
+<li><p>Join both datasets, trips and zones, in order to get the borough and average trip amount excluding the unknown zones, grouping by borough and ordering by the average trip amount .</p></li>
+<li><p>Show the results.</p></li>
+<li><p>Plot the results.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zones_df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;csv&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;inferSchema&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;timestampFormat&quot;</span><span class="p">,</span><span class="s2">&quot;yyyy-MM-dd HH:mm:ss&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;header&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;mode&quot;</span><span class="p">,</span> <span class="s2">&quot;DROPMALFORMED&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;./Data/zones.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zones_df</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="p">(</span><span class="s1">&#39;zones_df&#39;</span><span class="p">)</span> 
+<span class="n">taxis_df</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="p">(</span><span class="s1">&#39;taxis_df&#39;</span><span class="p">)</span> 
+<span class="n">join_df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;SELECT Borough, AVG(tip_amount) AS tip_amount_avg FROM taxis_df JOIN zones_df ON PULocationID = LocationID WHERE PULocationID &lt; 264  GROUP BY Borough ORDER BY AVG(tip_amount) DESC&quot;</span><span class="p">)</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">join_df</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">task3_spark_sql_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+-------------+------------------+
+|      Borough|    tip_amount_avg|
++-------------+------------------+
+|     Brooklyn|1.5295506094329612|
+|       Queens|1.3814509977827034|
+|    Manhattan|1.3054620174908678|
+|Staten Island|1.1371428571428572|
+|          EWR|               0.5|
+|        Bronx|0.4036954915003696|
++-------------+------------------+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time of task 3 with Spark SQL&#39;</span><span class="p">,</span> <span class="n">task3_spark_sql_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time of task 3 with Spark SQL 2.7581818103790283
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">join_df_pd</span> <span class="o">=</span> <span class="n">join_df</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Borough&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip_amount_avg&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">join_df_pd</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Borough&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Avg tip amount&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Average tip per Borough&quot;</span><span class="p">)</span>
+<span class="c1"># plt.xticks(range(0,24), rotation=0) </span>
+<span class="c1"># min = np.round(hours_speed_df_pd[&quot;avg(trip_speed_km_h)&quot;].min())</span>
+<span class="c1"># max = np.round(hours_speed_df_pd[&quot;avg(trip_speed_km_h)&quot;].max())</span>
+<span class="c1"># ysticks_ = np.unique(np.round(np.linspace(min, max, 15)))</span>
+<span class="c1"># plt.yticks(ysticks_) </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/372aee4768afe860e44cc80124da826ee3e9915d420bf1305978093bf41045dd.png" src="_images/372aee4768afe860e44cc80124da826ee3e9915d420bf1305978093bf41045dd.png" />
+</div>
+</div>
+</section>
+<section id="time-analysis">
+<h2><strong>Time Analysis</strong><a class="headerlink" href="#time-analysis" title="Link to this heading">#</a></h2>
+<section id="spark-and-number-of-cores">
+<h3><strong>Spark and number of cores</strong><a class="headerlink" href="#spark-and-number-of-cores" title="Link to this heading">#</a></h3>
+<p>In this section we have analyzed both the different times of execution and speed-up of the different processes.</p>
+<ul class="simple">
+<li><p>We have done differentes measurements using distinct number of cores: 1, 2, 4, 6, 8 and 10 (all).</p></li>
+<li><p>We have created a table with all this measurements in order to analyze them and make different plots to show the results.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">data_cleaning_spark_df_time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">17.51055</span><span class="p">,</span> <span class="mf">11.5567</span><span class="p">,</span> <span class="mf">7.8198</span><span class="p">,</span> <span class="mf">7.1175</span><span class="p">,</span>  <span class="mf">7.0512</span> <span class="p">,</span> <span class="mf">6.4139</span><span class="p">])</span>
+<span class="n">task1_spark_df_time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">5.902377</span><span class="p">,</span> <span class="mf">3.45250</span><span class="p">,</span> <span class="mf">2.49201</span><span class="p">,</span> <span class="mf">2.60570</span><span class="p">,</span>  <span class="mf">2.2375</span> <span class="p">,</span> <span class="mf">1.8649</span><span class="p">])</span>
+<span class="n">task1_spark_rdd_time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">34.256966</span> <span class="p">,</span> <span class="mf">21.998392</span> <span class="p">,</span> <span class="mf">18.01433</span> <span class="p">,</span> <span class="mf">17.94407</span> <span class="p">,</span>  <span class="mf">16.6878</span>   <span class="p">,</span> <span class="mf">16.96136</span> <span class="p">])</span>
+<span class="n">task1_spark_sql_time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">6.7926690</span><span class="p">,</span> <span class="mf">3.687486</span><span class="p">,</span> <span class="mf">2.9901852</span><span class="p">,</span> <span class="mf">2.642264</span><span class="p">,</span>  <span class="mf">2.2889</span> <span class="p">,</span> <span class="mf">2.14359</span><span class="p">])</span>
+<span class="n">task2_spark_df_time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">11.040179</span><span class="p">,</span> <span class="mf">6.647932</span><span class="p">,</span> <span class="mf">5.729816</span><span class="p">,</span> <span class="mf">5.35511</span><span class="p">,</span> <span class="mf">5.1246</span> <span class="p">,</span> <span class="mf">5.066134</span><span class="p">])</span>
+<span class="n">task3_spark_sql_time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">6.1619</span><span class="p">,</span> <span class="mf">3.180148</span><span class="p">,</span> <span class="mf">2.62037</span><span class="p">,</span> <span class="mf">2.56909</span><span class="p">,</span> <span class="mf">2.4121</span><span class="p">,</span> <span class="mf">2.15730</span><span class="p">])</span>
+
+<span class="n">df_times</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">df_times</span><span class="p">[</span><span class="s1">&#39;cores&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cores</span>
+<span class="n">df_times</span><span class="p">[</span><span class="s1">&#39;data_cleaning_spark_df_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_cleaning_spark_df_time</span>
+<span class="n">df_times</span><span class="p">[</span><span class="s1">&#39;task1_spark_df_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">task1_spark_df_time</span>
+<span class="n">df_times</span><span class="p">[</span><span class="s1">&#39;task1_spark_rdd_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">task1_spark_rdd_time</span>
+<span class="n">df_times</span><span class="p">[</span><span class="s1">&#39;task1_spark_sql_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">task1_spark_sql_time</span>
+<span class="n">df_times</span><span class="p">[</span><span class="s1">&#39;task2_spark_df_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">task2_spark_df_time</span>
+<span class="n">df_times</span><span class="p">[</span><span class="s1">&#39;task3_spark_sql_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">task3_spark_sql_time</span>
+<span class="n">df_times</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_times</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_times</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cores</th>
+      <th>data_cleaning_spark_df_time</th>
+      <th>task1_spark_df_time</th>
+      <th>task1_spark_rdd_time</th>
+      <th>task1_spark_sql_time</th>
+      <th>task2_spark_df_time</th>
+      <th>task3_spark_sql_time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>17.51055</td>
+      <td>5.902377</td>
+      <td>34.256966</td>
+      <td>6.792669</td>
+      <td>11.040179</td>
+      <td>6.161900</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>11.55670</td>
+      <td>3.452500</td>
+      <td>21.998392</td>
+      <td>3.687486</td>
+      <td>6.647932</td>
+      <td>3.180148</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>7.81980</td>
+      <td>2.492010</td>
+      <td>18.014330</td>
+      <td>2.990185</td>
+      <td>5.729816</td>
+      <td>2.620370</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6</td>
+      <td>7.11750</td>
+      <td>2.605700</td>
+      <td>17.944070</td>
+      <td>2.642264</td>
+      <td>5.355110</td>
+      <td>2.569090</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8</td>
+      <td>7.05120</td>
+      <td>2.237500</td>
+      <td>16.687800</td>
+      <td>2.288900</td>
+      <td>5.124600</td>
+      <td>2.412100</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>10</td>
+      <td>6.41390</td>
+      <td>1.864900</td>
+      <td>16.961360</td>
+      <td>2.143590</td>
+      <td>5.066134</td>
+      <td>2.157300</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The following plot compares the time per cores of the first study with df, RDD or SQL.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;cores&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;task1_spark_df_time&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_times</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Spark DF&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;cores&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;task1_spark_rdd_time&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_times</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Spark RDD&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;cores&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;task1_spark_sql_time&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_times</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Spark SQL&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Number of cores&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Time task 1 (secs)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Time per cores - Study 1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/63817e65f034c6edb20070428bf481745c018db01a2e5bd1954383f4ba6f1f9c.png" src="_images/63817e65f034c6edb20070428bf481745c018db01a2e5bd1954383f4ba6f1f9c.png" />
+</div>
+</div>
+<p>We calculate the speed up of all the processes by dividing the time of execution of one core by the time of execution with the cores used.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_speed_up</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_times</span><span class="p">)))</span>
+
+<span class="k">for</span> <span class="n">col_name</span> <span class="ow">in</span> <span class="n">df_times</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+
+    <span class="k">if</span> <span class="n">col_name</span> <span class="o">==</span> <span class="s1">&#39;cores&#39;</span><span class="p">:</span>
+
+        <span class="n">df_speed_up</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_times</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span>
+
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="n">base_time</span> <span class="o">=</span> <span class="n">df_times</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_times</span><span class="p">[</span><span class="s1">&#39;cores&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="n">col_name</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">df_speed_up</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">base_time</span> <span class="o">/</span> <span class="n">df_times</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_speed_up</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cores</th>
+      <th>data_cleaning_spark_df_time</th>
+      <th>task1_spark_df_time</th>
+      <th>task1_spark_rdd_time</th>
+      <th>task1_spark_sql_time</th>
+      <th>task2_spark_df_time</th>
+      <th>task3_spark_sql_time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1.515186</td>
+      <td>1.709595</td>
+      <td>1.557249</td>
+      <td>1.842087</td>
+      <td>1.660694</td>
+      <td>1.937614</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>2.239258</td>
+      <td>2.368521</td>
+      <td>1.901651</td>
+      <td>2.271655</td>
+      <td>1.926795</td>
+      <td>2.351538</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6</td>
+      <td>2.460211</td>
+      <td>2.265179</td>
+      <td>1.909097</td>
+      <td>2.570776</td>
+      <td>2.061616</td>
+      <td>2.398476</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8</td>
+      <td>2.483343</td>
+      <td>2.637934</td>
+      <td>2.052815</td>
+      <td>2.967657</td>
+      <td>2.154349</td>
+      <td>2.554579</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>10</td>
+      <td>2.730094</td>
+      <td>3.164983</td>
+      <td>2.019706</td>
+      <td>3.168828</td>
+      <td>2.179212</td>
+      <td>2.856302</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>This plot compares the speed up per cores of the first study with Spark DF, RDD and SQL.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;cores&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;task1_spark_df_time&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_speed_up</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Spark DF&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;cores&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;task1_spark_rdd_time&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_speed_up</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Spark RDD&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;cores&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;task1_spark_sql_time&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_speed_up</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Spark SQL&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Number of cores&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Speed-up task 1 (secs)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Speed-up per cores - Study 1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4ad6b06eff672f493969c6a62124951c8a19a9e510fa4f5b1d856be2d2cbf6e4.png" src="_images/4ad6b06eff672f493969c6a62124951c8a19a9e510fa4f5b1d856be2d2cbf6e4.png" />
+</div>
+</div>
+<p>The plots below show the speedup of the other studies and the clean up process per cores.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;cores&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;task2_spark_df_time&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_speed_up</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Spark DF&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Number of cores&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Speed-up task 2 (secs)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Speed-up per cores - Study 2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f334080edafa97d7b89705318f38661a74bcfce464173a8f0b36b23e20859899.png" src="_images/f334080edafa97d7b89705318f38661a74bcfce464173a8f0b36b23e20859899.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;cores&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;task3_spark_sql_time&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_speed_up</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Spark DF&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Number of cores&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Speed-up task 3 (secs)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Speed-up per cores - Study 3&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4f752c031c4f43ee8d3574774d017bb5ff56815f90e70b9cdb8a38d7a69587aa.png" src="_images/4f752c031c4f43ee8d3574774d017bb5ff56815f90e70b9cdb8a38d7a69587aa.png" />
+</div>
+</div>
+</section>
+<section id="spark-vs-pandas-vs-polars">
+<h3><strong>Spark vs Pandas vs Polars</strong><a class="headerlink" href="#spark-vs-pandas-vs-polars" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open a dictionary saved as a pickle</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;Spark_times_df_dict.pickle&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="c1"># Read back the pickled file</span>
+    <span class="n">Spark_times_df_dict</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open a dictionary saved as a pickle</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;Pandas_times_df_dict.pickle&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="c1"># Read back the pickled file</span>
+    <span class="n">Pandas_times_df_dict</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open a dictionary saved as a pickle</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;Polars_times_df_dict.pickle&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="c1"># Read back the pickled file</span>
+    <span class="n">Polars_times_df_dict</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;taxis.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;taxis_15M.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;taxis_62M.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;taxis_124M.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;taxis_186M.csv&#39;</span><span class="p">]</span> <span class="p">:</span>
+
+    <span class="k">if</span> <span class="n">data</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;taxis.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;taxis_15M.csv&#39;</span><span class="p">]</span> <span class="p">:</span>
+        <span class="n">Spark_times_df_dict</span><span class="p">[</span><span class="n">data</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;data_reading_Spark-DF_time&#39;</span><span class="p">,</span> <span class="s1">&#39;data_cleaning_Spark-DF_time&#39;</span><span class="p">,</span> <span class="s1">&#39;task1_Spark-DF_time&#39;</span><span class="p">,</span> <span class="s1">&#39;task1_Spark-RDD_time&#39;</span><span class="p">,</span> <span class="s1">&#39;task1_Spark-SQL_time&#39;</span><span class="p">]</span> 
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="n">Spark_times_df_dict</span><span class="p">[</span><span class="n">data</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;data_reading_Spark-DF_time&#39;</span><span class="p">,</span> <span class="s1">&#39;data_cleaning_Spark-DF_time&#39;</span><span class="p">,</span> <span class="s1">&#39;task1_Spark-DF_time&#39;</span><span class="p">,</span> <span class="s1">&#39;task1_Spark-SQL_time&#39;</span><span class="p">]</span> 
+          
+    <span class="n">Pandas_times_df_dict</span><span class="p">[</span><span class="n">data</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;data_reading_Pandas_time&#39;</span><span class="p">,</span> <span class="s1">&#39;data_cleaning_Pandas_time&#39;</span><span class="p">,</span> <span class="s1">&#39;task1_Pandas_time&#39;</span><span class="p">]</span> 
+    <span class="n">Polars_times_df_dict</span><span class="p">[</span><span class="n">data</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;data_reading_Polars_time&#39;</span><span class="p">,</span> <span class="s1">&#39;data_cleaning_Polars_time&#39;</span><span class="p">,</span> <span class="s1">&#39;task1_Polars_time&#39;</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;taxis.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;taxis_15M.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;taxis_62M.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;taxis_124M.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;taxis_186M.csv&#39;</span><span class="p">]</span>
+<span class="n">methods</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Spark-DF&#39;</span><span class="p">,</span> <span class="s1">&#39;Pandas&#39;</span><span class="p">,</span> <span class="s1">&#39;Polars&#39;</span><span class="p">,</span> <span class="s1">&#39;Spark-RDD&#39;</span><span class="p">,</span> <span class="s1">&#39;Spark-SQL&#39;</span><span class="p">]</span>
+<span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;data_reading&#39;</span><span class="p">,</span> <span class="s1">&#39;data_cleaning&#39;</span><span class="p">,</span> <span class="s1">&#39;task1&#39;</span><span class="p">]</span>
+<span class="k">def</span> <span class="nf">df_name</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Spark-DF&#39;</span><span class="p">,</span> <span class="s1">&#39;Spark-RDD&#39;</span><span class="p">,</span> <span class="s1">&#39;Spark-SQL&#39;</span><span class="p">]</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span>      
+
+<span class="n">avg_time</span><span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span> <span class="p">:</span>
+    <span class="n">avg_time</span><span class="p">[</span><span class="n">task</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="n">task</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;data_reading&#39;</span><span class="p">,</span> <span class="s1">&#39;data_cleaning&#39;</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Spark-DF&#39;</span><span class="p">,</span> <span class="s1">&#39;Pandas&#39;</span><span class="p">,</span> <span class="s1">&#39;Polars&#39;</span><span class="p">]</span> <span class="p">:</span>
+            <span class="n">avg_time</span><span class="p">[</span><span class="n">task</span><span class="p">][</span><span class="n">method</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">methods</span><span class="p">:</span>
+            <span class="n">avg_time</span><span class="p">[</span><span class="n">task</span><span class="p">][</span><span class="n">method</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="n">times_df_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Spark&#39;</span><span class="p">,</span> <span class="s1">&#39;Pandas&#39;</span><span class="p">,</span> <span class="s1">&#39;Polars&#39;</span><span class="p">]</span> <span class="p">:</span>
+    <span class="n">times_df_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="nb">globals</span><span class="p">()[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">_times_df_dict&#39;</span><span class="p">]</span>
+
+<span class="c1">#########################################################################################</span>
+
+<span class="n">filtered_product</span> <span class="o">=</span> <span class="p">[(</span><span class="n">method</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">task</span><span class="p">)</span> <span class="k">for</span> <span class="n">method</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="n">methods</span><span class="p">,</span> <span class="n">data_names</span><span class="p">,</span> <span class="n">tasks</span><span class="p">)</span> 
+                    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;Spark-RDD&#39;</span> <span class="ow">and</span> <span class="n">task</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;data_reading&#39;</span><span class="p">,</span> <span class="s1">&#39;data_cleaning&#39;</span><span class="p">])</span>
+                    <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;Spark-SQL&#39;</span> <span class="ow">and</span> <span class="n">task</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;data_reading&#39;</span><span class="p">,</span> <span class="s1">&#39;data_cleaning&#39;</span><span class="p">])]</span>
+
+<span class="k">for</span> <span class="n">method</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">filtered_product</span> <span class="p">:</span>
+
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;Spark-RDD&#39;</span> <span class="ow">and</span> <span class="n">data</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;taxis_62M.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;taxis_124M.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;taxis_186M.csv&#39;</span><span class="p">]:</span> 
+
+        <span class="n">avg_time</span><span class="p">[</span><span class="n">task</span><span class="p">][</span><span class="n">method</span><span class="p">][</span><span class="n">data</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
+
+    <span class="k">else</span> <span class="p">:</span>
+        
+        <span class="n">avg_time</span><span class="p">[</span><span class="n">task</span><span class="p">][</span><span class="n">method</span><span class="p">][</span><span class="n">data</span><span class="p">]</span> <span class="o">=</span> <span class="n">times_df_dict</span><span class="p">[</span><span class="n">df_name</span><span class="p">(</span><span class="n">method</span><span class="p">)][</span><span class="n">data</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s1">_time&#39;</span><span class="p">]</span>
+
+<span class="c1">#########################################################################################</span>
+
+<span class="k">def</span> <span class="nf">total_time_v1</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="n">avg_time</span><span class="p">[</span><span class="n">task</span><span class="p">][</span><span class="n">method</span><span class="p">][</span><span class="n">data</span><span class="p">]</span> <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">total_time_v2</span><span class="p">(</span><span class="n">method</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">data</span> <span class="p">:</span> <span class="n">total_time_v1</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span> <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">data_names</span><span class="p">}</span>
+
+<span class="n">avg_time</span><span class="p">[</span><span class="s1">&#39;all_tasks&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Spark-DF&#39;</span><span class="p">,</span> <span class="s1">&#39;Pandas&#39;</span><span class="p">,</span> <span class="s1">&#39;Polars&#39;</span><span class="p">]</span> <span class="p">:</span>
+
+    <span class="n">avg_time</span><span class="p">[</span><span class="s1">&#39;all_tasks&#39;</span><span class="p">][</span><span class="n">method</span><span class="p">]</span> <span class="o">=</span> <span class="n">total_time_v2</span><span class="p">(</span><span class="n">method</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the number of rows and columns for the matrix plot</span>
+<span class="n">num_cols</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># You can adjust the number of columns as needed</span>
+<span class="n">n_tasks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">avg_time</span><span class="p">)</span>
+<span class="n">num_rows</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">n_tasks</span> <span class="o">/</span> <span class="n">num_cols</span><span class="p">))</span>
+
+<span class="n">data_size</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1M&#39;</span><span class="p">,</span> <span class="s1">&#39;15M&#39;</span><span class="p">,</span> <span class="s1">&#39;62M&#39;</span><span class="p">,</span> <span class="s1">&#39;124M&#39;</span><span class="p">,</span> <span class="s1">&#39;186M&#39;</span><span class="p">]</span>
+<span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Data reading&#39;</span><span class="p">,</span> <span class="s1">&#39;Data cleaning&#39;</span><span class="p">,</span> <span class="s1">&#39;Study 1&#39;</span><span class="p">,</span> <span class="s1">&#39;All the tasks&#39;</span><span class="p">]</span>
+
+<span class="c1"># Create a subplot with the specified number of rows and columns</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">num_rows</span><span class="p">,</span> <span class="n">num_cols</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Flatten the axes array to make it easier to iterate</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+<span class="n">n_methods</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># (spark-df, spark-sql, spark-rdd pandas, polars)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;tab10&quot;</span><span class="p">,</span> <span class="n">n_methods</span><span class="p">)</span>
+
+<span class="c1"># Loop through each &#39;geo&#39; and create a subplot in the matrix</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">task</span><span class="p">),</span> <span class="n">title</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">avg_time</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">titles</span><span class="p">)</span> <span class="p">:</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  <span class="c1"># Get the current axis</span>
+    <span class="k">for</span> <span class="n">method</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">avg_time</span><span class="p">[</span><span class="n">task</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">colors</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">data_size</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">avg_time</span><span class="p">[</span><span class="n">task</span><span class="p">][</span><span class="n">method</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>    
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Data size (millions)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Average time (seconds)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;italic&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">get_legend</span><span class="p">()</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>  <span class="c1"># Remove individual subplot legends</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">:</span> <span class="c1"># Getting the labels of the third plot (the one with more labels), for build a general legend.</span>
+        <span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span> 
+
+<span class="c1"># Remove any unused subplots in case the number of &#39;geo&#39; values is less than num_rows * num_cols</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">avg_time</span><span class="p">),</span> <span class="n">num_rows</span> <span class="o">*</span> <span class="n">num_cols</span><span class="p">):</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">delaxes</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+<span class="c1"># Add a shared legend outside of the subplots</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="p">,</span> <span class="n">methods</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower center&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">),</span> <span class="n">ncol</span><span class="o">=</span><span class="n">n_methods</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Spark vs Pandas vs Polars - Time comparison&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;italic&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span> <span class="c1"># Establishing a general tittle for the plot.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span> <span class="c1"># Adjust vertical (hspace) and horizontal (wspace) spacing</span>
+<span class="c1"># fig.savefig(&#39;Spark_Pandas_Polars&#39; + &#39;.jpg&#39;, format=&#39;jpg&#39;, dpi=600, bbox_inches=&quot;tight&quot;)</span>
+<span class="c1"># plt.tight_layout()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/678e69e5aec1465cc5ccb8b0e806863b6d9bcb589f31b714cb87d7f68483cedf.png" src="_images/678e69e5aec1465cc5ccb8b0e806863b6d9bcb589f31b714cb87d7f68483cedf.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction"><strong>Introduction</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements"><strong>Requirements</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-with-spark-data-frames"><strong>Data cleaning with <code class="docutils literal notranslate"><span class="pre">Spark</span></code> data-frames</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-set-conceptual-description"><strong>Data-set conceptual description</strong> <a class="anchor" id="7"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#study-1-average-speed-of-taxis-in-terms-of-the-hour"><strong>Study 1: Average speed of taxis in terms of the hour</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-spark-data-frames"><strong>With Spark data-frames</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-spark-rdd"><strong>With Spark RDD</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-spark-sql"><strong>With Spark SQL</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-pandas"><strong>With Pandas</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-with-pandas"><strong>Data cleaning with Pandas</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-the-task">Performing the task</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#study-2-most-common-taxi-trips"><strong>Study 2: Most common taxi trips</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#study-3-average-of-tips-per-borough"><strong>Study 3: Average of tips per borough</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-analysis"><strong>Time Analysis</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spark-and-number-of-cores"><strong>Spark and number of cores</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spark-vs-pandas-vs-polars"><strong>Spark vs Pandas vs Polars</strong></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
